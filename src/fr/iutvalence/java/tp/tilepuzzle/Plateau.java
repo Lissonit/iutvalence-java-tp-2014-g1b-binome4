@@ -145,4 +145,9 @@ public class Plateau
 	{
 		return this.cases.contains(position);
 	}
+
+	public void reinitialiser()
+	{
+		this.cases.clear();
+	}
 }

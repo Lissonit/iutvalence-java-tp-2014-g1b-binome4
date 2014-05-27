@@ -9,17 +9,19 @@ public class JButtonCase extends JButton
 	private static final Color CASE_SELECTIONNEE = Color.GREEN;
 	private static final Color CASE_NON_SELECTIONNEE = Color.ORANGE;
 
-	private int ligne;
-	private int colonne;
+	private Position position;
 
 	private boolean etat;
 
 	public JButtonCase(int ligne, int colonne)
 	{
-		this.ligne = ligne;
-		this.colonne = colonne;
-		this.setBackground(CASE_SELECTIONNEE);
-		this.etat = true;
+		this.position = new Position(ligne, colonne);
+		this.modifierEtat(false);
+	}
+	
+	public Position obtenirPosition()
+	{
+		return this.position;
 	}
 	
 	public void modifierEtat(boolean etat)

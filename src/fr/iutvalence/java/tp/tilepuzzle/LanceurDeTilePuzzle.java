@@ -21,11 +21,11 @@ public class LanceurDeTilePuzzle
 	{
 		System.out.println("Création de la partie");
 		FabriqueDePlateau fdp = new FabriqueDePlateauAleatoire();
-		Joueur joueur = new JoueurClavier();
-		TilePuzzle partieDeTilePuzzle = new TilePuzzle(joueur, fdp);
-		Affichage affichage = new FenetreHM(partieDeTilePuzzle.obtenirNombreLignes(), partieDeTilePuzzle.obtenirNombreColonnes());
-		partieDeTilePuzzle.associerAffichage(affichage);
-		SwingUtilities.invokeLater((Runnable)affichage);
+		TilePuzzle partieDeTilePuzzle = new TilePuzzle(fdp);
+		FenetreHM ihm = new FenetreHM(partieDeTilePuzzle.obtenirPlateau());
+		partieDeTilePuzzle.associerAffichage(ihm);
+		partieDeTilePuzzle.associerJoueur(ihm);
+		SwingUtilities.invokeLater((Runnable)ihm);
 		System.out.println("Demarrage de la partie");
 		partieDeTilePuzzle.jouer();
 		System.out.println("Fin de la partie");
